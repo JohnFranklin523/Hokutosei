@@ -1,0 +1,51 @@
+STR_GRF_NAME                :Hokutosei - Hokkaido Trains {VERSION_STRING}
+
+STR_GRF_DESC                :{BLUE}Hokuto{WHITE}sei {}{BLACK}Extrazoom Rolling Stocks of Hokkaido, Japan. {}By John Franklin {}Under GPL v2
+STR_GRF_URL                 :https://tt-forums.net/viewtopic.php?t=90219
+
+STR_PARAM_LOADING_SPEED         :Loading Speed
+STR_PARAM_LOADING_SPEED_DESC    :Adjust vehicle loading speed. Default is 100%.
+
+STR_PARAM_PURCHASE_COST      :Purchase costs
+STR_PARAM_PURCHASE_COST_DESC :Adjust vehicle purchase costs. Default is 25%.
+STR_PARAM_RUNNING_COST       :Running costs
+STR_PARAM_RUNNING_COST_DESC  :Adjust vehicle running costs. Default is 25%.
+
+STR_PARAM_DIVIDE_16 :6.25%
+STR_PARAM_DIVIDE_8  :12.5%
+STR_PARAM_DIVIDE_4  :25%
+STR_PARAM_DIVIDE_2  :50%
+STR_PARAM_NORMAL    :100%
+STR_PARAM_TIMES_2   :200%
+STR_PARAM_TIMES_4   :400%
+STR_PARAM_TIMES_8   :800%
+STR_PARAM_TIMES_16  :1600%
+
+STR_PARAM_CARGO_DECAY       :Comfort
+STR_PARAM_CARGO_DECAY_DESC  :Adjust cargo age period of coaches and wagons. "Long" is "Standard" doubled, while "Very Long" is "Long" doubled. Even in "Standard" mode, cargo age period varies.
+STR_PARAM_STANDARD          :Standard
+STR_PARAM_LONG              :Long
+STR_PARAM_VERY_LONG         :Very Long
+
+STR_USED_WITH_DYNAMIC_ENGINES       :This GRF needs dynamic_engines to be turned on. Open console, and type "setting dynamic_engines 1".
+
+
+STR_NAME_C62                :C62 (Steam)
+
+STR_NAME_KAITAKUSHI         :Kaitakushi "Pioneer" (Passenger Coach)
+
+
+STR_DESC_2                  :{STRING}{}{STRING}
+STR_DESC_3                  :{STRING}{}{STRING}{}{STRING}
+
+STR_ELECTRICITY_SUPPLY_YES  :Head-End Power: {GREEN}YES{BLACK}
+STR_ELECTRICITY_SUPPLY_NO   :Head-End Power: {RED}NO{BLACK}
+
+STR_RELIABILITY_5           :Reliability Decay Speed: {BLUE}5{BLACK}
+
+
+STR_KAITAKUSHI_LIVERY_AVAILABILITY       :Liveries Available: Hokkaido Coal Company{BLACK}
+
+STR_COMFORT_144         :Comfort: {ORANGE}144{BLACK}
+
+STR_NO_AIR_CONDITIONER  :Air Conditioner {RED}UNAVAILABLE{BLACK}

@@ -1,0 +1,16 @@
+railtypetable {
+    RAIL,
+    ELRL,
+    MONO,
+    MGLV,
+    SAAN: [SAAN, RAIL],
+    SAAA: [SAAA, SAAE, ELRL],
+    SAAD: [SAAD, SAAd, SAAE, ELRL],
+    SAAd: [SAAd, SAAD, SAAE, ELRL],
+    SAA3: [SAA3, "3RDR", MTRO, ELRL],
+    NAAN: [NAAN, NGRL],
+    NAAA: [NAAA, NAAE, NGRL],
+    NAAD: [NAAD, NAAd, NAAE, ELNG],
+    NAAd: [NAAd, NAAD, NAAE, ELNG],
+    NAA3: [NAA3, NAAE, ELNG]
+}

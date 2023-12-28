@@ -1,0 +1,225 @@
+/* Begin Functions */
+// shamelessly stolen from jp+ shinkansen
+
+switch (FEAT_TRAINS, PARENT, func_is_reversed, vehicle_is_reversed) {return;}
+
+// Running cost factor depending on speed
+switch (FEAT_TRAINS, SELF, runningcost60, current_speed) {
+    0: return 1;
+    1..3: return 2;
+    4..6: return 3;
+    7..10: return 4;
+    return 5;
+}
+switch (FEAT_TRAINS, SELF, runningcost80, current_speed) {
+    0: return 1;
+    1..5: return 2;
+    6..12: return 3;
+    13..20: return 4;
+    return 5;
+}
+switch (FEAT_TRAINS, SELF, runningcost120, current_speed) {
+    0: return 1;
+    1..8: return 2;
+    9..19: return 3;
+    20..30: return 4;
+    return 5;
+}
+switch (FEAT_TRAINS, SELF, runningcost160, current_speed) {
+    0: return 1;
+    1..12: return 2;
+    13..26: return 3;
+    27..40: return 4;
+    return 5;
+}
+switch (FEAT_TRAINS, SELF, runningcost200, current_speed) {
+    0: return 1;
+    1..15: return 2;
+    16..32: return 3;
+    33..50: return 4;
+    return 5;
+}
+switch (FEAT_TRAINS, SELF, runningcost250, current_speed) {
+    0: return 1;
+    1..18: return 2;
+    19..39: return 3;
+    40..60: return 4;
+    return 5;
+}
+switch (FEAT_TRAINS, SELF, runningcost280, current_speed) {
+    0: return 1;
+    1..21: return 2;
+    22..45: return 3;
+    46..70: return 4;
+    return 5;
+}
+switch (FEAT_TRAINS, SELF, runningcost300, current_speed) {
+    0: return 1;
+    1..24: return 2;
+    25..52: return 3;
+    53..80: return 4;
+    return 5;
+}
+switch (FEAT_TRAINS, SELF, runningcost350, current_speed) {
+    0: return 1;
+    1..27: return 2;
+    28..58: return 3;
+    59..90: return 4;
+    return 5;
+}
+switch (FEAT_TRAINS, SELF, runningcost400, current_speed) {
+    0: return 1;
+    1..30: return 2;
+    31..65: return 3;
+    66..100: return 4;
+    return 5;
+}
+
+switch (FEAT_TRAINS, SELF, runningcostfactor, max_speed) {
+    0..20: runningcost60;                   // < 75 km/h
+    21..30: runningcost80;          	    // 75-110 km/h
+    31..40: runningcost120; 		       	// 110-145 km/h
+    41..50: runningcost160;                 // 145-180 km/h
+    51..60: runningcost200;                 // 180-220 km/h
+    61..70: runningcost250;                 // 220-255 km/h
+    71..80: runningcost280;                 // 255-290 km/h
+    81..90: runningcost300;                 // 290-325 km/h
+    91..100: runningcost350;                // 325-360 km/h      
+    runningcost400;                         // > 360 km/h
+}
+
+
+/*
+
+BITMASK SHEET
+
+bitmask(0): reserved
+bitmask(1): restaurant car
+bitmask(2): air conditioner
+bitmask(3): conductor car
+bitmask(4): brake van
+
+For example, 
+bitmask_vehicle_info:           bitmask(1, 3);
+
+*/
+// Another running cost factor depending on the existence of restaurant car - changed in v0.0.8 - now halves the runing costs of passenger cars instead of elimination 
+switch (FEAT_TRAINS, PARENT, cafecostfactor, hasbit(bitmask_consist_info, 1)) {
+    1: return 1;
+    return 2;
+}
+
+// Running cost factor of AC Generator Cars (and also locomotives able to supply electricity for cars) - added in v0.0.8 - now varies according to the number of cars with need of air condition (including some passenger cars and a few refrigerator wagons)
+// The costs are not coded into AC Generator Cars, but into cars with need of AC.
+switch (FEAT_TRAINS, PARENT, accostfactor, hasbit(bitmask_consist_info, 2)) {
+    1: return 2;
+    return 0;
+}
+
+// Cargo age period factor depending on Restaurant Car: attaching restaurant car increases cargo age period of medium and long range passenger cars (i.e. not commuter cars) by 1/4
+switch (FEAT_TRAINS, PARENT, cafedecayfactor, hasbit(bitmask_consist_info, 1)) {
+    1: return 5;
+    return 4;
+}
+
+// Cargo age period factor depending on Air Conditioner: If the train is not pulled by an locomotive able to supply electricity for cars, nor is there an air condition generator car (bitmask 2), the cargo_age_period of this passenger car reduces by 1/5.
+switch (FEAT_TRAINS, PARENT, acdecayfactor, hasbit(bitmask_consist_info, 2)) {
+    0: return 4;
+    return 5;
+}
+
+// Electric Engines MUST BE ELECTRIFIED to supply electricity
+
+switch (FEAT_TRAINS, SELF, airconditioner, vehicle_is_powered) {
+    1: return bitmask(2);
+    return 0;
+}
+
+switch (FEAT_TRAINS, SELF, locowagon, vehicle_type_id) {
+    768..1023: return CB_RESULT_ATTACH_DISALLOW;
+    4096..8191: return CB_RESULT_ATTACH_DISALLOW;
+    return CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
+}
+
+switch (FEAT_TRAINS, SELF, switch_visual_effect_and_powered, ((position_in_articulated_veh == 0) && !func_is_reversed()) || ((position_in_articulated_veh_from_end == 0) && func_is_reversed()) ) {
+	1: return visual_effect_and_powered(VISUAL_EFFECT_ELECTRIC, 0, ENABLE_WAGON_POWER);
+	return visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
+}
+
+
+// MUs need at least 4 cars to start
+switch (FEAT_TRAINS, SELF, mu4car, num_vehs_in_consist < 12) {
+    1: return string(STR_TOO_SHORT);
+    return CB_RESULT_NO_TEXT;
+}
+
+switch (FEAT_TRAINS, SELF, mu481216car, num_vehs_in_consist) {
+    12: return CB_RESULT_NO_TEXT;
+    24: return CB_RESULT_NO_TEXT;
+    36: return CB_RESULT_NO_TEXT;
+    48: return CB_RESULT_NO_TEXT;
+    return string(STR_MUST_BE_4_8_12_16_CARS);
+}
+
+switch (FEAT_TRAINS, SELF, mu5to17car, num_vehs_in_consist) {
+    15..51: return CB_RESULT_NO_TEXT;
+    return string(STR_MUST_BE_5_TO_17_CARS);
+}
+
+/* LENGTHS */
+
+// Length 12
+    switch (FEAT_TRAINS, SELF, switch_length_2_8_2, position_in_articulated_veh % 3) {
+        1: return 8;
+        return 2;
+    }
+
+// Length 10
+    switch (FEAT_TRAINS, SELF, switch_length_1_8_1, position_in_articulated_veh % 3) {
+        1: return 8;
+        return 1;
+    }
+
+// Length 9
+    switch (FEAT_TRAINS, SELF, switch_length_1_7_1, position_in_articulated_veh % 3) {
+        1: return 7;
+        return 1;
+    }
+
+// Length 8
+    switch (FEAT_TRAINS, SELF, switch_length_1_6_1, position_in_articulated_veh % 3) {
+        1: return 6;
+        return 1;
+    }
+
+// Length 7
+    switch (FEAT_TRAINS, SELF, switch_length_1_5_1, position_in_articulated_veh % 3) {
+        1: return 5;
+        return 1;
+    }
+
+// Length 6
+    switch (FEAT_TRAINS, SELF, switch_length_1_4_1, position_in_articulated_veh % 3) {
+        1: return 4;
+        return 1;
+    }
+
+// Length 5
+    switch (FEAT_TRAINS, SELF, switch_length_1_3_1, position_in_articulated_veh % 3) {
+        1: return 3;
+        return 1;
+    }
+    
+// Length 4
+    switch (FEAT_TRAINS, SELF, switch_length_1_2_1, position_in_articulated_veh % 3) {
+        1: return 2;
+        return 1;
+    }
+
+// SL front-length 7 tender-length 4
+    switch (FEAT_TRAINS, SELF, switch_length_1_6_4, position_in_articulated_veh % 3) {
+        1: return 6;
+        2: return 4;
+        return 1;
+    }
+/* End Functions */ 

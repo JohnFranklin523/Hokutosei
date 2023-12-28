@@ -1,0 +1,56 @@
+// This file sets all vehicle IDs. Each type has a range of 32/64/128/256/512/768/1024 possible IDs.
+
+// Horse, available ID range: 512-767
+
+// MU Wagons, available ID range: 768-1023
+
+//  For narrow gauge: 768-895
+
+//  For standard gauge: 896-1023
+
+
+// Coaches (NG): 1024-1535
+item (FEAT_TRAINS, kaitakushi, 1024) {}
+
+// Wagons (NG): 1536-2047
+
+
+// Steam (NG): 2048-2559
+item (FEAT_TRAINS, c62, 2048) {}
+
+
+// Diesel (NG): 2560-3071
+
+// AC Electric (NG): 3072-3583
+
+// DC Electric (NG): 3584-3839
+
+// Multi-Voltage Electric (NG): 3840-3967
+
+// Hybrid (NG): 3968-4095
+
+
+// DMU (NG): 3072-3583
+
+
+
+
+
+// AC EMU (NG): 4096-4607
+
+
+
+
+// DC EMU (NG): 4864-5119
+
+
+// 3RDR EMU (NG): 5120-5375
+
+
+
+
+// Multi-Voltage EMU (NG): 5632-5887
+\
+
+
+// Hybrid MU (NG): 6016-6143

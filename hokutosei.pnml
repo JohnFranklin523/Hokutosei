@@ -1,0 +1,36 @@
+// Define the GRF
+#include "src/header.pnml"
+
+// Templates
+#include "src/template.pnml"
+
+// Helpers
+#include "src/railtypetable.pnml"
+#include "src/cargotable.pnml"
+#include "src/functions.pnml"
+
+// IDs
+#include "src/vehicleid.pnml"
+
+// Horse
+
+
+
+// Unit Wagons
+
+
+
+// Coaches
+#include "src/coaches/kaitakushi.pnml"
+
+// Wagons
+
+
+// Steam
+#include "src/steam/c62.pnml"
+
+
+
+
+// Sort vehicles
+#include "src/vehiclesort.pnml"

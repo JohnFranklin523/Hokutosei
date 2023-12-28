@@ -1,0 +1,69 @@
+// Begin template
+
+// Learned from JP+ Shinkansen
+
+// Empty Template
+
+template template_empty() {
+  [0, 0, 2, 2, 0, 0, CROP, "gfx/empty.png"]
+  [0, 0, 2, 2, 0, 0, CROP, "gfx/empty.png"]
+  [0, 0, 2, 2, 0, 0, CROP, "gfx/empty.png"]
+  [0, 0, 2, 2, 0, 0, CROP, "gfx/empty.png"]
+  [0, 0, 2, 2, 0, 0, CROP, "gfx/empty.png"]
+  [0, 0, 2, 2, 0, 0, CROP, "gfx/empty.png"]
+  [0, 0, 2, 2, 0, 0, CROP, "gfx/empty.png"]
+  [0, 0, 2, 2, 0, 0, CROP, "gfx/empty.png"]
+}
+
+// Purchase Templates
+template template_purchase_empty() {
+    // a: vehicle type (all lower cases), b: vehicle name (all lower cases)
+    []
+    []
+    []
+    []
+    []
+    []
+    [0, 0, 2, 2, 0, 0, "gfx/empty.png"]
+    []
+}
+
+template template_purchase (a, b) {
+    // a: vehicle type (all lower cases), b: vehicle name (all lower cases)
+    []
+    []
+    []
+    []
+    []
+    []
+    [664,   0, 192,  80, -96, -60, "gfx/"+a+"/"+b+"_32bpp.png"]
+    []
+}
+
+template template_standard (a, b) {
+    [  0,   0,  32, 144, -12, -72, "gfx/"+a+"/"+b+"_32bpp.png"]
+    [ 40,   0, 120, 116, -72, -76, "gfx/"+a+"/"+b+"_32bpp.png"]
+    [168,   0, 192,  80, -96, -60, "gfx/"+a+"/"+b+"_32bpp.png"]
+    [368,   0, 120, 116, -40, -76, "gfx/"+a+"/"+b+"_32bpp.png"]
+    [496,   0,  32, 144, -12, -72, "gfx/"+a+"/"+b+"_32bpp.png"]
+    [536,   0, 120, 116, -72, -76, "gfx/"+a+"/"+b+"_32bpp.png"]
+    [664,   0, 192,  80, -96, -60, "gfx/"+a+"/"+b+"_32bpp.png"]
+    [864,   0, 120, 116, -40, -76, "gfx/"+a+"/"+b+"_32bpp.png"]
+}
+
+template template_reversed (a, b) {
+    [496,   0,  32, 144, -12, -72, "gfx/"+a+"/"+b+"_32bpp.png"]
+    [536,   0, 120, 116, -72, -76, "gfx/"+a+"/"+b+"_32bpp.png"]
+    [664,   0, 192,  80, -96, -60, "gfx/"+a+"/"+b+"_32bpp.png"]
+    [864,   0, 120, 116, -40, -76, "gfx/"+a+"/"+b+"_32bpp.png"]
+    [  0,   0,  32, 144, -12, -72, "gfx/"+a+"/"+b+"_32bpp.png"]
+    [ 40,   0, 120, 116, -72, -76, "gfx/"+a+"/"+b+"_32bpp.png"]
+    [168,   0, 192,  80, -96, -60, "gfx/"+a+"/"+b+"_32bpp.png"]
+    [368,   0, 120, 116, -40, -76, "gfx/"+a+"/"+b+"_32bpp.png"]
+}
+
+// Below shamelessly stolen from JP+ Shinkansen
+
+spriteset (empty_sprites, "gfx/empty.png") {
+  [0, 0, 2, 2, 0, 0, CROP]
+}
