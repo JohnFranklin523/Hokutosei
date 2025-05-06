@@ -1,3 +1,5 @@
+#grflangid 0x01
+
 STR_GRF_NAME                :Hokutosei - Hokkaido Trains {VERSION_STRING}
 
 STR_GRF_DESC                :{BLUE}Hokuto{WHITE}sei {}{BLACK}Extrazoom Rolling Stocks of Hokkaido, Japan. {}By John Franklin {}Under GPL v2

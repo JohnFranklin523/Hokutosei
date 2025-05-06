@@ -3,25 +3,16 @@
 // Graphics
 
 // Purchase Menu
-spriteset (spriteset_c62_purchase) {
-    template_purchase_empty ()
-}
-alternative_sprites(spriteset_c62_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+spriteset (spriteset_c62_purchase, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_purchase ("steam", "c62-p")
 }
 
 
 // Vehicle
-spriteset (spriteset_c62_front) {
-    template_empty ()
-}
-spriteset (spriteset_c62_tender) {
-    template_empty ()
-}
-alternative_sprites(spriteset_c62_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+spriteset (spriteset_c62_front, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("steam", "c62-1")
 }
-alternative_sprites(spriteset_c62_tender, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+spriteset (spriteset_c62_tender, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("steam", "c62-2")
 }
 
@@ -37,9 +28,6 @@ switch (FEAT_TRAINS, SELF, switch_c62_graphics, position_in_articulated_veh % 3)
     empty_sprites;
 }
 
-switch (FEAT_TRAINS, SELF, switch_c62_additional_text, param_cargo_decay) {
-    return string(STR_DESC_2, string(STR_ELECTRICITY_SUPPLY_NO), string(STR_RELDEC_LOW, 5));
-}
 
 item (FEAT_TRAINS, c62) {
     property {
@@ -82,7 +70,7 @@ item (FEAT_TRAINS, c62) {
     }
     graphics {
         // Menu
-        additional_text:                        switch_c62_additional_text;
+        additional_text:                        string(STR_DESC_2, string(STR_ELECTRICITY_SUPPLY_NO), string(STR_RELDEC_LOW, 5));
         can_attach_wagon:                       locowagon;
 
         // Graphics

@@ -3,18 +3,12 @@
 // Graphics
 
 // Purchase Menu
-spriteset (spriteset_kaitakushi_purchase_original) {
-    template_purchase_empty ()
-}
-alternative_sprites(spriteset_kaitakushi_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+spriteset (spriteset_kaitakushi_purchase_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_purchase ("coaches", "kaitakushi")
 }
 
 // Vehicle
-spriteset (spriteset_kaitakushi_original) {
-    template_empty ()
-}
-alternative_sprites(spriteset_kaitakushi_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
+spriteset (spriteset_kaitakushi_original, ZOOM_LEVEL_IN_4X, BIT_DEPTH_32BPP) {
     template_standard ("coaches", "kaitakushi")
 }
 
@@ -33,9 +27,6 @@ switch (FEAT_TRAINS, SELF, switch_kaitakushi_capacity, position_in_articulated_v
     return 0;
 }
 
-switch (FEAT_TRAINS, SELF, switch_kaitakushi_additional_text, param_cargo_decay) {
-    return string(STR_DESC_3, string(STR_KAITAKUSHI_LIVERY_AVAILABILITY), string(STR_COMFORT_LOW, 144), string(STR_NO_AIR_CONDITIONER));
-}
 
 item (FEAT_TRAINS, kaitakushi) {
     property {
@@ -73,7 +64,7 @@ item (FEAT_TRAINS, kaitakushi) {
     }
     graphics {
         // Menu
-        additional_text:                switch_kaitakushi_additional_text;
+        additional_text:                string(STR_DESC_3, string(STR_KAITAKUSHI_LIVERY_AVAILABILITY), string(STR_COMFORT_LOW, 144), string(STR_NO_AIR_CONDITIONER));
         can_attach_wagon:               locowagon;
         
         // Graphics
