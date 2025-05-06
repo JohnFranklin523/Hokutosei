@@ -41,11 +41,32 @@ STR_DESC_3                  :{STRING}{}{STRING}{}{STRING}
 STR_ELECTRICITY_SUPPLY_YES  :Head-End Power: {GREEN}YES{BLACK}
 STR_ELECTRICITY_SUPPLY_NO   :Head-End Power: {RED}NO{BLACK}
 
-STR_RELIABILITY_5           :Reliability Decay Speed: {BLUE}5{BLACK}
-
-
 STR_KAITAKUSHI_LIVERY_AVAILABILITY       :Liveries Available: Hokkaido Coal Company{BLACK}
 
-STR_COMFORT_144         :Comfort: {ORANGE}144{BLACK}
 
-STR_NO_AIR_CONDITIONER  :Air Conditioner {RED}UNAVAILABLE{BLACK}
+STR_RELDEC_VERY_HIGH                             :{BLACK}Reliability decay speed: {RED}Very high ({COMMA})
+STR_RELDEC_HIGH                                  :{BLACK}Reliability decay speed: {ORANGE}High ({COMMA})
+STR_RELDEC_MEDIUM                                :{BLACK}Reliability decay speed: {YELLOW}Medium ({COMMA})
+STR_RELDEC_LOW                                   :{BLACK}Reliability decay speed: {GREEN}Low ({COMMA})
+STR_RELDEC_VERY_LOW                              :{BLACK}Reliability decay speed: {BLUE}Very low ({COMMA})
+
+STR_COMFORT_VERY_LOW                             :{BLACK}Comfort: {RED}Very low ({COMMA})
+STR_COMFORT_LOW                                  :{BLACK}Comfort: {ORANGE}Low ({COMMA})
+STR_COMFORT_MEDIUM                               :{BLACK}Comfort: {YELLOW}Medium ({COMMA})
+STR_COMFORT_HIGH                                 :{BLACK}Comfort: {GREEN}High ({COMMA})
+STR_COMFORT_VERY_HIGH                            :{BLACK}Comfort: {BLUE}Very high ({COMMA})
+STR_COMFORT_EXTREMELY_HIGH                       :{BLACK}Comfort: {WHITE}Extremely high ({COMMA})
+STR_FRESHNESS_VERY_LOW                           :{BLACK}Cargo age period factor: {RED}Very low ({COMMA})
+STR_FRESHNESS_LOW                                :{BLACK}Cargo age period factor: {ORANGE}Low ({COMMA})
+STR_FRESHNESS_MEDIUM                             :{BLACK}Cargo age period factor: {YELLOW}Medium ({COMMA})
+STR_FRESHNESS_HIGH                               :{BLACK}Cargo age period factor: {GREEN}High ({COMMA})
+STR_FRESHNESS_VERY_HIGH                          :{BLACK}Cargo age period factor: {BLUE}Very high ({COMMA})
+STR_FRESHNESS_EXTREMELY_HIGH                     :{BLACK}Cargo age period factor: {WHITE}Extremely High ({COMMA})
+STR_DECAY_BOXCAR                                 :{BLACK}Cargo Age Period Factor: {YELLOW}185{BLACK}, Passengers {RED}80{BLACK}, Livestock {BLUE}560
+STR_DECAY_BOXCAR_NOPASS                          :{BLACK}Cargo Age Period Factor: {YELLOW}185{BLACK}, Livestock {BLUE}560{BLACK}, {RED}Unrefittable to Passengers
+STR_DECAY_BOXCAR_POST                            :{BLACK}Cargo Age Period Factor: {YELLOW}200{BLACK}, {RED}Unrefittable to Passengers
+STR_CAFE_EFFECT                                  :{BLACK}Cafe Effect: {GOLD}Attaching Restaurant Car Halves Running Costs of Non-Commuter Passenger Cars except Restaurant Cars, and Increases Cargo Age Period by 1/4
+STR_AIR_CONDITIONER_EFFECT                       :{BLACK}Air Conditioner Effect: {GOLD}Attaching Air Conditioner Generator Car Increases Cargo Age Period of Most Passenger Cars Hauled by Locomotives without Electricity Supply by 1/4
+STR_AIR_CONDITIONER_NEED_POWER                   :{BLACK}Air Conditioner: {YELLOW}Requires external power supply
+STR_NO_AIR_CONDITIONER                           :{BLACK}Air Conditioner: {RED}Unavailable
+STR_SELF_AIR_CONDITIONER                         :{BLACK}With Air Conditioner Compartment {RED}ONLY USED BY ITSELF

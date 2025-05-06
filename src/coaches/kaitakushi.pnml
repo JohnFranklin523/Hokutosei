@@ -34,7 +34,7 @@ switch (FEAT_TRAINS, SELF, switch_kaitakushi_capacity, position_in_articulated_v
 }
 
 switch (FEAT_TRAINS, SELF, switch_kaitakushi_additional_text, param_cargo_decay) {
-    return string(STR_DESC_3, string(STR_KAITAKUSHI_LIVERY_AVAILABILITY), string(STR_COMFORT_144), string(STR_NO_AIR_CONDITIONER));
+    return string(STR_DESC_3, string(STR_KAITAKUSHI_LIVERY_AVAILABILITY), string(STR_COMFORT_LOW, 144), string(STR_NO_AIR_CONDITIONER));
 }
 
 item (FEAT_TRAINS, kaitakushi) {

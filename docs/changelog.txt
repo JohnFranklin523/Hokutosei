@@ -1,10 +1,6 @@
 Hokutosei changelog
 =========================
 
-0.0.1.2 (28/12/2023)
--------------------------
-Fix #1: pure white graphics
-
-0.0.1.1 (28/12/2023)
+0.0.1 (20??-??-??)
 -------------------------
 Add: C62 (Steam), Kaitakushi (Passenger Coach)

@@ -1,0 +1,7 @@
+.nmlcache
+*.grf
+*.nml
+*.tar
+custom_tags.txt
+gfx/**/*.png
+*.xlsx
